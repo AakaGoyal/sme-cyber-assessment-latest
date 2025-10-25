@@ -1,0 +1,102 @@
+[
+  {
+    "id": "q-sect-manu-001",
+    "section": "Network and Production",
+    "text": "Are production or machine control systems on a separate network from office computers and wireless?",
+    "hint": "Separation limits the spread of problems into production environments.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 3, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-manu-002",
+    "section": "Remote Access",
+    "text": "Is remote access to production or warehouse systems protected with a second sign-in step and limited to named suppliers and staff?",
+    "hint": "Extra sign-in steps stop many remote compromise attempts.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-manu-003",
+    "section": "Firmware and Updates",
+    "text": "Are controllers, scanners, and industrial devices updated on a regular schedule agreed with suppliers?",
+    "hint": "Updates fix bugs and reduce security risk on connected equipment.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 3, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-manu-004",
+    "section": "Internet Access",
+    "text": "Is general internet access from the production network blocked or restricted to only what is needed?",
+    "hint": "Limiting internet on production networks reduces exposure to harmful content.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-manu-005",
+    "section": "Backup and Recovery",
+    "text": "Are configurations for controllers and critical devices backed up and stored safely so they can be restored after a failure?",
+    "hint": "Configuration backups reduce downtime after hardware problems.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-manu-006",
+    "section": "Supplier Access",
+    "text": "Is supplier remote access enabled only when needed and turned off when the job is finished?",
+    "hint": "Temporary access reduces risk from unused connections.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-manu-007",
+    "section": "Portable Media",
+    "text": "Is the use of portable drives and memory sticks limited on production systems and are they scanned before use?",
+    "hint": "Portable media can carry harmful software into controlled environments.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-manu-008",
+    "section": "Warehouse and Devices",
+    "text": "Are handheld scanners, tablets, and label printers protected with passwords and kept on the business network only?",
+    "hint": "Securing edge devices prevents easy entry points into your network.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-manu-009",
+    "section": "Change Control",
+    "text": "Are important changes to production systems recorded, including who approved them and when they were made?",
+    "hint": "Simple records help find the cause of problems quickly.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-manu-010",
+    "section": "Continuity Planning",
+    "text": "Do you have a short plan for how to keep essential operations running if production systems are unavailable, and has it been tested in the last year?",
+    "hint": "Planning and testing reduce downtime during unexpected failures.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 3, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": [] },
+    "framework_references": []
+  }
+]
