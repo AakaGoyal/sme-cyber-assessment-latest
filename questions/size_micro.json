@@ -8,5 +8,75 @@
     "weights": { "importance": 2, "effort": 1, "impact": 3 },
     "visibility_rules": { "sizes": ["micro"], "sectors": ["all"], "overlays": [] },
     "framework_references": []
+  },
+  {
+    "id": "q-size-micro-002",
+    "section": "Devices and Data",
+    "text": "Are personal devices used for work set up with a separate work profile or at least a screen lock and device encryption where supported?",
+    "hint": "Separating or securing personal devices reduces the risk to business data.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-micro-003",
+    "section": "Network and Wireless",
+    "text": "Is the wireless password strong and shared with guests using a separate guest network only?",
+    "hint": "Keep visitors away from business devices and point of sale equipment.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-micro-004",
+    "section": "Access and Identity",
+    "text": "Do you store important passwords in a password manager instead of a notebook or message chats?",
+    "hint": "Password managers reduce reuse and loss of passwords.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-micro-005",
+    "section": "Payments and Money",
+    "text": "If you use online banking, do you review payment alerts or messages for unusual activity?",
+    "hint": "Alerts help catch mistakes and fraud early.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-micro-006",
+    "section": "Cloud and Sharing",
+    "text": "Do you avoid sending sensitive files as attachments and instead share secure links with access only to named people?",
+    "hint": "Links with access controls are safer than open attachments.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-micro-007",
+    "section": "Incident Preparedness",
+    "text": "Do staff know to disconnect a device from wireless and power if something suspicious appears, and then contact the named person?",
+    "hint": "Isolating a device helps stop spread while you get help.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-micro-008",
+    "section": "Social and Public Presence",
+    "text": "Are business social accounts owned by a business email address and not a personal mailbox of one staff member?",
+    "hint": "Business ownership prevents lockout when people leave.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
   }
 ]
