@@ -1,0 +1,12 @@
+[
+  {
+    "id": "q-size-micro-001",
+    "section": "Backup and Recovery",
+    "text": "Do you save copies of important files in another safe place such as a cloud folder or an external drive?",
+    "hint": "Simple offsite copies reduce damage if a device is lost.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  }
+]
