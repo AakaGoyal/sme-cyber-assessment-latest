@@ -1,0 +1,22 @@
+[
+  {
+    "id": "q-core-001",
+    "section": "Access and Identity",
+    "text": "Do all important business accounts require a second step at sign-in, such as a one time code on a telephone application?",
+    "hint": "This extra step is called multi factor authentication and it prevents many common attacks.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-002",
+    "section": "Network and Wireless",
+    "text": "Is your guest wireless network separate from the business wireless network used by company devices?",
+    "hint": "Separating guests from business devices reduces the chance of attacks.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  }
+]
