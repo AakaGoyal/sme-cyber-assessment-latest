@@ -1,0 +1,102 @@
+[
+  {
+    "id": "q-sect-pro-001",
+    "section": "Client Data Protection",
+    "text": "Are client folders in the cloud restricted to only the staff who are assigned to that client?",
+    "hint": "Limit access to reduce accidental or harmful disclosure.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["professional_services"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-pro-002",
+    "section": "Client Data Protection",
+    "text": "Are sensitive documents shared using secure links rather than open email attachments whenever possible?",
+    "hint": "Links with access controls provide better protection than attachments.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["professional_services"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-pro-003",
+    "section": "Client Data Protection",
+    "text": "Are laptops that store client data encrypted and set to lock quickly when unattended?",
+    "hint": "Encryption and quick locking reduce the risk of data loss.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["professional_services"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-pro-004",
+    "section": "Email and Communication",
+    "text": "Is an extra sign-in step required for email and document systems used for client work?",
+    "hint": "A second step blocks many account takeovers.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["professional_services"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-pro-005",
+    "section": "Data Retention",
+    "text": "Do you have a simple schedule for how long client files are kept and a safe way to delete them when no longer needed?",
+    "hint": "Removing old data reduces the impact of any future incident.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["professional_services"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-pro-006",
+    "section": "Vendor and Cloud",
+    "text": "Do contracts with document, email, or storage providers include confidentiality and security expectations?",
+    "hint": "Contract terms help protect client information held by providers.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 3, "impact": 3 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["professional_services"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-pro-007",
+    "section": "Access and Identity",
+    "text": "Are shared mailboxes and calendars controlled so only named staff can access them, and are leaving staff removed promptly?",
+    "hint": "Tidy shared access prevents silent data exposure.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["professional_services"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-pro-008",
+    "section": "Meeting and Collaboration",
+    "text": "Are online meetings protected with waiting rooms or invitations, and are recordings stored securely?",
+    "hint": "Control entry and storage to protect confidential discussions.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["professional_services"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-pro-009",
+    "section": "Removable Media",
+    "text": "Is the use of portable drives limited and are files scanned before opening?",
+    "hint": "Portable media can carry harmful software into your systems.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["professional_services"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-pro-010",
+    "section": "Logging and Accountability",
+    "text": "Are changes to access for client folders and important groups recorded or at least confirmed by email?",
+    "hint": "Basic records help you understand who had access and when.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["professional_services"], "overlays": [] },
+    "framework_references": []
+  }
+]
