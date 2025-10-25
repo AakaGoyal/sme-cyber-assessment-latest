@@ -8,5 +8,55 @@
     "weights": { "importance": 3, "effort": 1, "impact": 3 },
     "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": ["payment_card_industry_data_security_standard"] },
     "framework_references": []
+  },
+  {
+    "id": "q-ovl-pci-002",
+    "section": "Payments and Point of Sale",
+    "text": "Is the payment system vendor listed and do you know how to contact them quickly for a suspected security issue?",
+    "hint": "Knowing who to call speeds up response and reduces confusion.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": ["payment_card_industry_data_security_standard"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-ovl-pci-003",
+    "section": "Payments and Point of Sale",
+    "text": "Are default passwords on terminals or payment applications changed to strong unique passwords?",
+    "hint": "Default passwords are widely known and can lead to compromise.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": ["payment_card_industry_data_security_standard"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-ovl-pci-004",
+    "section": "Payments and Point of Sale",
+    "text": "Do managers receive alerts for unusual refund activity or manual card entries?",
+    "hint": "Alerts can help detect fraud early before losses grow.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": ["payment_card_industry_data_security_standard"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-ovl-pci-005",
+    "section": "Payments and Point of Sale",
+    "text": "Are staff trained not to request or handle full card details by telephone or message unless the provider gives a secure method?",
+    "hint": "Unsecured collection of card details leads to data exposure and fraud.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": ["payment_card_industry_data_security_standard"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-ovl-pci-006",
+    "section": "Payments and Point of Sale",
+    "text": "Are payment and point of sale devices placed on a locked or watched counter area to prevent physical swapping?",
+    "hint": "Preventing unsupervised access helps stop device swaps and hidden skimmers.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": ["payment_card_industry_data_security_standard"] },
+    "framework_references": []
   }
 ]
