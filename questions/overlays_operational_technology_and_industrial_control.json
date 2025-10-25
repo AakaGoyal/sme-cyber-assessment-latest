@@ -1,0 +1,62 @@
+[
+  {
+    "id": "q-ovl-ot-001",
+    "section": "Network Segmentation",
+    "text": "Are production networks and office networks separated with only the minimum connections needed between them?",
+    "hint": "Segmentation reduces the chance that office issues affect production systems.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 3, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": ["operational_technology_and_industrial_control"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-ovl-ot-002",
+    "section": "Remote Access Control",
+    "text": "Is remote access to controllers or production systems protected with an extra sign-in step and allowed only when needed?",
+    "hint": "Limiting and protecting remote access reduces common attack paths.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": ["operational_technology_and_industrial_control"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-ovl-ot-003",
+    "section": "Patch and Firmware",
+    "text": "Are firmware and software updates for production devices planned with suppliers and applied on a set schedule?",
+    "hint": "Planned updates reduce unpatched weaknesses in connected equipment.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 3, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": ["operational_technology_and_industrial_control"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-ovl-ot-004",
+    "section": "Portable Media",
+    "text": "Is the use of portable drives on production systems restricted and are they scanned before use?",
+    "hint": "Portable drives can bypass network protections and introduce harmful software.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": ["operational_technology_and_industrial_control"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-ovl-ot-005",
+    "section": "Supplier Access",
+    "text": "Is supplier remote access enabled only during maintenance windows and turned off when work is complete?",
+    "hint": "Temporary access reduces ongoing exposure from unused connections.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": ["operational_technology_and_industrial_control"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-ovl-ot-006",
+    "section": "Configuration Backups",
+    "text": "Are configuration backups for controllers and key devices stored safely so the system can be restored after a fault or attack?",
+    "hint": "Configuration backups reduce downtime and speed up recovery.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["manufacturing_logistics"], "overlays": ["operational_technology_and_industrial_control"] },
+    "framework_references": []
+  }
+]
