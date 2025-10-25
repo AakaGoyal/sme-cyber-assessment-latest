@@ -18,5 +18,185 @@
     "weights": { "importance": 3, "effort": 2, "impact": 3 },
     "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
     "framework_references": []
+  },
+  {
+    "id": "q-core-003",
+    "section": "Access and Identity",
+    "text": "Does each person have their own login and password for business systems, rather than sharing accounts?",
+    "hint": "Shared accounts make it hard to track and control access.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-004",
+    "section": "Access and Identity",
+    "text": "Are administrator rights limited to people who truly need them for their job?",
+    "hint": "Fewer administrator accounts reduce the damage from mistakes or attacks.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-005",
+    "section": "Access and Identity",
+    "text": "Are accounts for staff or contractors removed on the same day they leave?",
+    "hint": "Quick removal prevents misuse of leftover access.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-006",
+    "section": "Devices and Data",
+    "text": "Do laptops and telephones used for work have a screen lock with a password or personal identification number?",
+    "hint": "Screen locks protect information if a device is lost or left unattended.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-007",
+    "section": "Devices and Data",
+    "text": "Is full device encryption turned on for company laptops and, where supported, for telephones?",
+    "hint": "Encryption protects data if a device is lost or stolen.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-008",
+    "section": "Devices and Data",
+    "text": "Is reputable endpoint protection software installed and active on all computers?",
+    "hint": "Endpoint protection helps block and detect harmful software.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-009",
+    "section": "Backup and Recovery",
+    "text": "Are important business files backed up automatically to a separate location such as a cloud service or external drive?",
+    "hint": "Backups protect against device loss, damage, and harmful software.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-010",
+    "section": "Backup and Recovery",
+    "text": "Have you tested restoring a backup in the last six months to confirm it actually works?",
+    "hint": "A tested backup gives confidence during an emergency.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-011",
+    "section": "Updates and Patching",
+    "text": "Are operating system updates turned on to install automatically on all devices?",
+    "hint": "Automatic updates close known security holes quickly.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-012",
+    "section": "Updates and Patching",
+    "text": "Are commonly used applications such as web browsers, document tools, and email clients updated automatically?",
+    "hint": "Applications often include important security fixes in updates.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-013",
+    "section": "Network and Wireless",
+    "text": "Is the office router password changed from the factory default and is remote administration disabled unless truly needed?",
+    "hint": "Default passwords and open management panels are easy targets.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-014",
+    "section": "Network and Wireless",
+    "text": "Is the router or wireless access point kept up to date with the latest firmware from the vendor?",
+    "hint": "Router updates fix security bugs that attackers target.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-015",
+    "section": "Awareness and Training",
+    "text": "Have staff been shown simple ways to spot suspicious messages and links in the last six months?",
+    "hint": "Short awareness refreshers reduce the chance of someone clicking a harmful link.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-016",
+    "section": "Incident Preparedness",
+    "text": "Do people know who to contact first if something suspicious happens, such as a harmful message, lost device, or unusual payment?",
+    "hint": "Clear reporting helps contain problems quickly.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-017",
+    "section": "Cloud and Sharing",
+    "text": "Is access to cloud folders limited to only those who need it for their work?",
+    "hint": "Limiting access reduces the chance of accidental or harmful sharing.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-018",
+    "section": "Cloud and Sharing",
+    "text": "Are links to share files set to expire or restricted to named people whenever possible?",
+    "hint": "Expiring or restricted links reduce exposure of shared data.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-019",
+    "section": "Social and Public Presence",
+    "text": "Are social media and advertising accounts protected with an extra sign-in step and stored in a password manager rather than being shared by message?",
+    "hint": "Central, safe storage and a second step prevent lockouts and takeovers.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-core-020",
+    "section": "Incident Preparedness",
+    "text": "Do you have a simple one page checklist of first steps to take during a cyber incident, such as isolating a device, changing passwords, and who to notify?",
+    "hint": "A short checklist reduces stress and speeds up response when something goes wrong.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
   }
 ]
