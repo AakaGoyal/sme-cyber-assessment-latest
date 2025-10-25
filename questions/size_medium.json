@@ -1,0 +1,12 @@
+[
+  {
+    "id": "q-size-medium-001",
+    "section": "Vendor and Cloud",
+    "text": "Do you keep a list of suppliers who have access to your systems or data and review it at least once a year?",
+    "hint": "Knowing who has access helps reduce supply chain risks.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  }
+]
