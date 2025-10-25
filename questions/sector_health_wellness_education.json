@@ -1,0 +1,102 @@
+[
+  {
+    "id": "q-sect-health-001",
+    "section": "Personal Records",
+    "text": "Are personal records stored in a secure system with access limited to only those who need it for their role?",
+    "hint": "Restricting access protects sensitive information about individuals.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["health_wellness_education"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-health-002",
+    "section": "Consent and Notices",
+    "text": "Do you provide a clear privacy notice that explains why data is collected and how long it will be kept?",
+    "hint": "Clear notices help people understand how their information is used.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["health_wellness_education"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-health-003",
+    "section": "Secure Communication",
+    "text": "Are messages that contain personal or health information sent using secure methods rather than plain email when possible?",
+    "hint": "Secure portals or protected links reduce the risk of exposure.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["health_wellness_education"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-health-004",
+    "section": "Device Security",
+    "text": "Are staff laptops and telephones that handle personal records encrypted and set to lock when unattended?",
+    "hint": "Lost or stolen devices should not expose personal information.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["health_wellness_education"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-health-005",
+    "section": "Retention and Deletion",
+    "text": "Do you follow a schedule to remove or archive personal records that are no longer needed?",
+    "hint": "Keeping less data reduces risk and effort during incidents.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["health_wellness_education"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-health-006",
+    "section": "Access Requests",
+    "text": "Do you have a simple way to respond when a person asks to see or delete their personal data within a set time?",
+    "hint": "A short procedure avoids delays and mistakes with rights requests.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["health_wellness_education"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-health-007",
+    "section": "Breach Steps",
+    "text": "Do you have written steps for what to do if personal information is sent to the wrong person or exposed by mistake?",
+    "hint": "Clear steps reduce harm and help you notify people correctly.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["health_wellness_education"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-health-008",
+    "section": "Third Parties",
+    "text": "Do agreements with practice management or learning platforms include confidentiality and security expectations?",
+    "hint": "Suppliers must protect the personal information they handle for you.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 3, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["health_wellness_education"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-health-009",
+    "section": "Physical Records",
+    "text": "Are paper records stored in locked areas and shredded when no longer needed?",
+    "hint": "Paper can leak private details if left in open spaces.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["health_wellness_education"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-health-010",
+    "section": "Awareness",
+    "text": "Do staff receive a short briefing on how to handle personal information safely during their first week?",
+    "hint": "Early awareness helps prevent common handling mistakes.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["health_wellness_education"], "overlays": [] },
+    "framework_references": []
+  }
+]
