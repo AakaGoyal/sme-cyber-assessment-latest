@@ -8,5 +8,75 @@
     "weights": { "importance": 3, "effort": 2, "impact": 3 },
     "visibility_rules": { "sizes": ["medium"], "sectors": ["all"], "overlays": [] },
     "framework_references": []
+  },
+  {
+    "id": "q-size-medium-002",
+    "section": "Policy and Governance",
+    "text": "Do you have a short information security policy that explains expectations for passwords, devices, sharing, and incident reporting?",
+    "hint": "A simple policy sets a common standard for everyone.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-medium-003",
+    "section": "Network and Infrastructure",
+    "text": "Are separate network zones used for office devices and any production or testing systems, with limited access between them?",
+    "hint": "Segmentation reduces the chance that one issue spreads everywhere.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 3, "impact": 3 },
+    "visibility_rules": { "sizes": ["medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-medium-004",
+    "section": "Monitoring and Alerts",
+    "text": "Do important systems send email alerts for unusual sign-ins, failed backups, or malware detections?",
+    "hint": "Basic alerting helps you notice incidents early.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-medium-005",
+    "section": "Backup and Recovery",
+    "text": "Is there a documented backup schedule and a record of at least one recovery test in the last twelve months?",
+    "hint": "Documentation proves that recovery actually works.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-medium-006",
+    "section": "Remote Access",
+    "text": "Is remote access to internal systems protected with a second sign-in step and limited to named people who need it?",
+    "hint": "Extra protection for remote access reduces common attacks.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-medium-007",
+    "section": "Vendor and Cloud",
+    "text": "Do supplier contracts include clear requirements for protecting your data and informing you quickly about incidents?",
+    "hint": "Contract terms set expectations and speed up response.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 3, "impact": 3 },
+    "visibility_rules": { "sizes": ["medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-medium-008",
+    "section": "Awareness and Training",
+    "text": "Do teams complete a short digital safety refresher at least twice a year and record attendance?",
+    "hint": "Regular refreshers keep awareness high across the company.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["medium"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
   }
 ]
