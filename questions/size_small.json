@@ -1,0 +1,12 @@
+[
+  {
+    "id": "q-size-small-001",
+    "section": "Policy and Process",
+    "text": "Do you have a short written plan for what to do if a cyber incident happens, including who to contact and first steps?",
+    "hint": "A one page checklist is enough to start.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["small"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  }
+]
