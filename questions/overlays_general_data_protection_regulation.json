@@ -1,0 +1,62 @@
+[
+  {
+    "id": "q-ovl-gdpr-001",
+    "section": "Personal Data Basics",
+    "text": "Do you have a clear reason for collecting personal data and is that reason explained to people in simple language?",
+    "hint": "People should know why their data is collected and how it is used.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-ovl-gdpr-002",
+    "section": "Consent and Rights",
+    "text": "If consent is used, do you record consent clearly and provide an easy way for people to withdraw it?",
+    "hint": "Consent should be recorded and just as easy to remove as to give.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-ovl-gdpr-003",
+    "section": "Access and Deletion",
+    "text": "Do you have a simple way to respond when a person asks to see or delete their personal data?",
+    "hint": "A short procedure helps meet requests on time and correctly.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-ovl-gdpr-004",
+    "section": "Data Minimisation",
+    "text": "Do you collect only the personal data that is needed for the stated purpose and avoid keeping it longer than necessary?",
+    "hint": "Less data collected and stored means less risk and easier compliance.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-ovl-gdpr-005",
+    "section": "Security of Processing",
+    "text": "Is personal data encrypted where appropriate and protected by an extra sign-in step when stored in cloud services?",
+    "hint": "Encryption and an extra sign-in step reduce the chance of unauthorised access.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-ovl-gdpr-006",
+    "section": "Breach Handling",
+    "text": "Do you have a simple list of who to contact and what to do if personal data is exposed or lost, including when to inform people and authorities?",
+    "hint": "Clear steps help you act quickly and correctly after a data incident.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["all"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  }
+]
