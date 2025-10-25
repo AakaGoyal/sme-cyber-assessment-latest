@@ -11,14 +11,26 @@ defaults = {
     "page": "Landing",                 # Landing → Initial assessment → Questionnaire → Results
     "person_name": "",
     "company_name": "",
-    "employee_range": "1 to 9",
-    "turnover_start": 0,               # start of the selected 100k band
+    "employee_range": "1–5",          # updated default to new ranges
+    "turnover_start": 0,               # start of the selected 100k band (kept; now set via dropdown)
     "size": "micro",
     "sector_label": "Retail & Hospitality",
     "sector_key": "hospitality_retail",
     "card_payments": True,
     "personal_data": True,
     "industrial_systems": False,
+
+    # new: initial assessment extras (Business profile + Digital footprint)
+    "bp_it_manager": "Self-managed",
+    "bp_asset_inventory": "Partially",
+    "bp_byod": "Sometimes",
+    "bp_sensitive_data": "Yes",
+    "dp_has_website": "Yes",
+    "dp_https": "Yes",
+    "dp_business_email": "Yes",
+    "dp_social_media": "Yes",
+    "dp_public_review": "Sometimes",
+
     "questions": [],
     "answers": {},                     # {question_id: "Yes" | "Partially or unsure" | "No"}
     "q_index": 0,                      # current question index
@@ -30,7 +42,7 @@ for k, v in defaults.items():
 # =========================
 # Options & helpers
 # =========================
-EMPLOYEE_RANGES = ["1 to 9", "10 to 49", "50 to 249", "250 or more"]
+EMPLOYEE_RANGES = ["1–5", "6–10", "10–25", "26–50", "51–100", "More than 100"]
 
 SECTOR_LABEL_TO_KEY = {
     "Retail & Hospitality": "hospitality_retail",
@@ -42,6 +54,12 @@ SECTOR_LABEL_TO_KEY = {
 }
 SECTOR_LABELS = list(SECTOR_LABEL_TO_KEY.keys())
 
+def euro_short(n: int) -> str:
+    # 100_000 -> "€100k", 5_000_000 -> "€5.0M"
+    if n >= 1_000_000:
+        return f"€{n/1_000_000:.1f}M"
+    return f"€{n//1000}k"
+
 def euro_fmt(n: int) -> str:
     if n >= 1_000_000:
         return f"{n//1_000_000} million euro"
@@ -49,14 +67,42 @@ def euro_fmt(n: int) -> str:
 
 # 100k-step bands 0 → 9.9M, then two sentinels for larger buckets
 TURNOVER_STARTS_100K = list(range(0, 10_000_000, 100_000))  # 0, 100k, ..., 9.9M
-TURNOVER_OPTIONS = TURNOVER_STARTS_100K + [10_000_000, 50_000_000]
+TURNOVER_SENTINELS = [10_000_000, 50_000_000]                # 10–<50M, 50M+
+TURNOVER_STARTS_ALL = TURNOVER_STARTS_100K + TURNOVER_SENTINELS
 
 def turnover_label_from_start(start: int) -> str:
+    if start < 100_000:
+        return "<€100k"
     if start < 10_000_000:
-        return f"{euro_fmt(start)} to less than {euro_fmt(start + 100_000)}"
+        return euro_short(start)
     if start == 10_000_000:
-        return "10 to less than 50 million euro"
-    return "50 million euro or more"
+        return "€10.0M–<€50.0M"
+    return "€50.0M+"
+
+def start_from_turnover_label(label: str) -> int:
+    if label == "<€100k":
+        return 0
+    if label == "€10.0M–<€50.0M":
+        return 10_000_000
+    if label == "€50.0M+":
+        return 50_000_000
+    # e.g., "€100k", "€200k", ..., "€9.9M"
+    raw = label.replace("€", "")
+    if raw.endswith("k"):
+        return int(float(raw[:-1])) * 1000
+    if raw.endswith("M"):
+        return int(float(raw[:-1]) * 1_000_000)
+    return 0
+
+def build_turnover_dropdown_options():
+    # requested: start at 100k, then 200k, 300k ...; include <€100k at the top and the two large buckets
+    opts = ["<€100k"]
+    for v in range(100_000, 10_000_000, 100_000):
+        opts.append(euro_short(v))
+    opts.extend(["€10.0M–<€50.0M", "€50.0M+"])
+    return opts
+
+TURNOVER_DROPDOWN = build_turnover_dropdown_options()
 
 def size_from_turnover_start(start: int) -> str:
     if start < 2_000_000:
@@ -131,7 +177,16 @@ if st.session_state.page == "Landing":
 if st.session_state.page == "Initial assessment":
     st.title("Initial assessment")
 
-    col1, col2 = st.columns(2)
+    # Left snapshot + main two columns
+    snap_col, col1, col2 = st.columns([1, 2, 2], vertical_alignment="top")
+    with snap_col:
+        st.subheader("Snapshot")
+        snap = st.file_uploader("Add a snapshot (PNG/JPG)", type=["png", "jpg", "jpeg"])
+        if snap:
+            st.image(snap, use_column_width=True)
+        else:
+            st.info("Upload a screenshot or photo here. (Reference-only; not stored.)")
+
     with col1:
         st.session_state.person_name = st.text_input(
             "Your name (person completing this assessment)",
@@ -143,21 +198,32 @@ if st.session_state.page == "Initial assessment":
             value=st.session_state.company_name,
             placeholder="Example Consulting Ltd",
         )
+        # employees — updated ranges
+        # keep index robust in case of old session values
+        try:
+            emp_index = EMPLOYEE_RANGES.index(st.session_state.employee_range)
+        except ValueError:
+            emp_index = 0
         st.session_state.employee_range = st.selectbox(
             "Number of employees (choose a range)",
             EMPLOYEE_RANGES,
-            index=EMPLOYEE_RANGES.index(st.session_state.employee_range),
+            index=emp_index,
             help="A range is enough for this assessment.",
         )
 
-        st.write("Annual turnover (choose a range)")
-        st.session_state.turnover_start = st.select_slider(
-            "Move the handle to pick a 100 thousand euro band",
-            options=TURNOVER_OPTIONS,
-            value=st.session_state.turnover_start,
-            format_func=turnover_label_from_start,
-            label_visibility="collapsed",
+        # turnover — dropdown in €100k steps (replaces slider)
+        current_label = turnover_label_from_start(st.session_state.turnover_start)
+        try:
+            t_index = TURNOVER_DROPDOWN.index(current_label)
+        except ValueError:
+            t_index = 0
+        chosen_label = st.selectbox(
+            "Approx. annual turnover (choose a value)",
+            TURNOVER_DROPDOWN,
+            index=t_index,
+            help="Dropdown in €100k steps (no slider).",
         )
+        st.session_state.turnover_start = start_from_turnover_label(chosen_label)
         st.session_state.size = size_from_turnover_start(st.session_state.turnover_start)
         st.info(f"Detected enterprise size: **{st.session_state.size.capitalize()}**")
 
@@ -181,6 +247,71 @@ if st.session_state.page == "Initial assessment":
         st.session_state.industrial_systems = st.checkbox(
             "We use production or control systems connected to networks",
             value=st.session_state.industrial_systems,
+        )
+
+    # ---- New: Business profile & Digital footprint (from the reference sheet)
+    st.markdown("---")
+    bp, df = st.columns(2)
+
+    with bp:
+        st.subheader("Section 1 — Business profile")
+        st.caption("Purpose: understand organizational size, structure, and IT management context.")
+        st.session_state.bp_it_manager = st.selectbox(
+            "Who manages your IT systems?",
+            ["Self-managed", "Outsourced IT", "Shared responsibility", "Not sure"],
+            index=["Self-managed", "Outsourced IT", "Shared responsibility", "Not sure"].index(st.session_state.bp_it_manager),
+        )
+        st.session_state.bp_asset_inventory = st.radio(
+            "Do you have an inventory of company devices (laptops, phones, servers)?",
+            ["Yes", "Partially", "No", "Not sure"],
+            horizontal=True,
+            index=["Yes", "Partially", "No", "Not sure"].index(st.session_state.bp_asset_inventory),
+        )
+        st.session_state.bp_byod = st.radio(
+            "Do employees use personal devices (BYOD) for work?",
+            ["Yes", "Sometimes", "No", "Not sure"],
+            horizontal=True,
+            index=["Yes", "Sometimes", "No", "Not sure"].index(st.session_state.bp_byod),
+        )
+        st.session_state.bp_sensitive_data = st.radio(
+            "Do you handle sensitive customer or financial data?",
+            ["Yes", "No", "Not sure"],
+            horizontal=True,
+            index=["Yes", "No", "Not sure"].index(st.session_state.bp_sensitive_data),
+        )
+
+    with df:
+        st.subheader("Section 2 — Digital footprint")
+        st.caption("Purpose: identify online exposure and brand presence.")
+        st.session_state.dp_has_website = st.radio(
+            "Does your business have a public website?",
+            ["Yes", "No"],
+            horizontal=True,
+            index=["Yes", "No"].index(st.session_state.dp_has_website),
+        )
+        st.session_state.dp_https = st.radio(
+            "Is your website protected with HTTPS (padlock symbol)?",
+            ["Yes", "No", "Not sure"],
+            horizontal=True,
+            index=["Yes", "No", "Not sure"].index(st.session_state.dp_https),
+        )
+        st.session_state.dp_business_email = st.radio(
+            "Do you use business email addresses (e.g., info@yourcompany.com)?",
+            ["Yes", "No", "Partially"],
+            horizontal=True,
+            index=["Yes", "No", "Partially"].index(st.session_state.dp_business_email),
+        )
+        st.session_state.dp_social_media = st.radio(
+            "Is your business present on social media platforms?",
+            ["Yes", "No"],
+            horizontal=True,
+            index=["Yes", "No"].index(st.session_state.dp_social_media),
+        )
+        st.session_state.dp_public_review = st.radio(
+            "Do you regularly review what company or employee info is publicly visible online?",
+            ["Yes", "Sometimes", "No"],
+            horizontal=True,
+            index=["Yes", "Sometimes", "No"].index(st.session_state.dp_public_review),
         )
 
     st.markdown("---")
@@ -277,8 +408,8 @@ if st.session_state.page == "Results":
             ans = st.session_state.answers.get(q["id"], "Partially or unsure")
             section_scores.setdefault(q["section"], []).append(score_choice(ans))
 
-        section_avg = {s: sum(vals) / len(vals) for s, vals in section_scores.items()}
-        overall = sum(section_avg.values()) / len(section_avg)
+        section_avg = {s: sum(vals) / len(vals) for s, vals in section_scores.items() if vals}
+        overall = sum(section_avg.values()) / len(section_avg) if section_avg else 0.0
 
         c1, c2, c3 = st.columns(3)
         c1.metric("Overall score (0 to 2)", f"{overall:.2f}")
