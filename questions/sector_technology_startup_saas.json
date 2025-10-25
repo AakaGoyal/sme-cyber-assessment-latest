@@ -1,0 +1,102 @@
+[
+  {
+    "id": "q-sect-saas-001",
+    "section": "Environment Separation",
+    "text": "Are test and live environments separated so that test accounts and data cannot affect live customers?",
+    "hint": "Separation prevents mistakes in testing from causing live incidents.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 3, "impact": 3 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["technology_startup_saas"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-saas-002",
+    "section": "Access to Live Data",
+    "text": "Is access to live customer data limited to named staff and protected with an extra sign-in step?",
+    "hint": "Limiting and protecting access reduces harmful insider and external access.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["technology_startup_saas"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-saas-003",
+    "section": "Secrets and Keys",
+    "text": "Are application keys and connection secrets stored in a secure vault and rotated when staff leave?",
+    "hint": "Central secret storage and rotation reduce the chance of leaks and abuse.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["technology_startup_saas"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-saas-004",
+    "section": "Change Control",
+    "text": "Do changes to live systems require a review or approval by another person before release?",
+    "hint": "Peer review catches mistakes and reduces outages.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["technology_startup_saas"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-saas-005",
+    "section": "Logging and Monitoring",
+    "text": "Are important events such as administration actions and failed logins logged and reviewed or alerted on?",
+    "hint": "Logging and alerts help detect attacks and misuse early.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 3, "impact": 3 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["technology_startup_saas"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-saas-006",
+    "section": "Vulnerability Management",
+    "text": "Do you run regular vulnerability scans of your application and fix important findings in a timely way?",
+    "hint": "Scanning and fixing reduce known weaknesses in your service.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 3, "impact": 3 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["technology_startup_saas"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-saas-007",
+    "section": "Third Party Code",
+    "text": "Do you track and update third party libraries and remove ones that are no longer needed?",
+    "hint": "Old libraries often contain known weaknesses that are easy to exploit.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 3, "impact": 3 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["technology_startup_saas"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-saas-008",
+    "section": "Data Protection",
+    "text": "Is sensitive customer data encrypted in storage and protected during transfer, and do you avoid storing it if not necessary?",
+    "hint": "Encryption and collecting less data both reduce risk.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["technology_startup_saas"], "overlays": ["general_data_protection_regulation"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-saas-009",
+    "section": "Incident Response",
+    "text": "Do you have a short runbook for service incidents that includes roles, first steps, and a communication template for customers?",
+    "hint": "Prepared roles and messages reduce confusion during outages.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["technology_startup_saas"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-saas-010",
+    "section": "Supplier Management",
+    "text": "Do suppliers who host or process your customer data agree to inform you quickly of incidents and meet basic security expectations?",
+    "hint": "Clear expectations in contracts reduce surprises and delays.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 3, "impact": 3 },
+    "visibility_rules": { "sizes": ["small","medium","micro"], "sectors": ["technology_startup_saas"], "overlays": [] },
+    "framework_references": []
+  }
+]
