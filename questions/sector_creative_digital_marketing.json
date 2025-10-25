@@ -1,0 +1,82 @@
+[
+  {
+    "id": "q-sect-creative-001",
+    "section": "Social and Advertising",
+    "text": "Are social, advertising, and analytics accounts owned by business email addresses and protected with an extra sign-in step?",
+    "hint": "Business ownership and extra protection prevent loss of access and takeovers.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["creative_digital_marketing"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-creative-002",
+    "section": "Project Assets",
+    "text": "Are client project files stored in access controlled folders and backed up regularly?",
+    "hint": "Controlled storage and backups protect delivery schedules and trust.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["creative_digital_marketing"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-creative-003",
+    "section": "Post Project Cleanup",
+    "text": "Do you have a rule to archive or remove client data and content after a project ends?",
+    "hint": "Cleaning up reduces risk and storage costs over time.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["creative_digital_marketing"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-creative-004",
+    "section": "Account Sharing",
+    "text": "Do you avoid sharing passwords for client accounts and instead use business manager tools or delegated access?",
+    "hint": "Delegated access keeps control with the client and reduces lockouts.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 2, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["creative_digital_marketing"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-creative-005",
+    "section": "Link Safety",
+    "text": "Are shortened links and advertising links checked before campaigns to ensure they do not point to harmful or incorrect pages?",
+    "hint": "Broken or harmful links damage brand and campaign results.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 1, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["creative_digital_marketing"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-creative-006",
+    "section": "Collaboration Tools",
+    "text": "Are project tools such as task boards and chat spaces limited to named team members and protected with an extra sign-in step?",
+    "hint": "Limiting access reduces data leaks and client exposure.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["creative_digital_marketing"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-creative-007",
+    "section": "Malicious Content Protection",
+    "text": "Are design files scanned for harmful content before sharing, especially when using shared drives with clients?",
+    "hint": "Simple scanning avoids passing harmful files to clients.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 1, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["creative_digital_marketing"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-creative-008",
+    "section": "Brand Protection",
+    "text": "Do you keep recovery contacts up to date for social and advertising platforms to quickly regain access after a lockout?",
+    "hint": "Up to date recovery helps restore accounts without delays.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 1, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["creative_digital_marketing"], "overlays": [] },
+    "framework_references": []
+  }
+]
