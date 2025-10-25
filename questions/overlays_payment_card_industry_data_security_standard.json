@@ -1,0 +1,12 @@
+[
+  {
+    "id": "q-ovl-pci-001",
+    "section": "Payments and Point of Sale",
+    "text": "Do staff understand that card numbers must never be written down or stored on local devices?",
+    "hint": "This reduces the chance of card data theft.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": ["payment_card_industry_data_security_standard"] },
+    "framework_references": []
+  }
+]
