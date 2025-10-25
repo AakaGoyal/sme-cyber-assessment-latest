@@ -11,8 +11,8 @@ defaults = {
     "page": "Landing",                 # Landing → Initial assessment → Questionnaire → Results
     "person_name": "",
     "company_name": "",
-    "employee_range": "1–5",          # updated default to new ranges
-    "turnover_start": 0,               # start of the selected 100k band (kept; now set via dropdown)
+    "employee_range": "1–5",
+    "turnover_start": 0,               # start of the selected 100k band (via dropdown)
     "size": "micro",
     "sector_label": "Retail & Hospitality",
     "sector_key": "hospitality_retail",
@@ -20,7 +20,7 @@ defaults = {
     "personal_data": True,
     "industrial_systems": False,
 
-    # new: initial assessment extras (Business profile + Digital footprint)
+    # Initial assessment extras (Business profile + Digital footprint)
     "bp_it_manager": "Self-managed",
     "bp_asset_inventory": "Partially",
     "bp_byod": "Sometimes",
@@ -30,6 +30,10 @@ defaults = {
     "dp_business_email": "Yes",
     "dp_social_media": "Yes",
     "dp_public_review": "Sometimes",
+
+    # Snapshot-related inputs
+    "years_in_business": "<1 year",
+    "work_mode": "Local & in-person",
 
     "questions": [],
     "answers": {},                     # {question_id: "Yes" | "Partially or unsure" | "No"}
@@ -53,6 +57,9 @@ SECTOR_LABEL_TO_KEY = {
     "Others (default generic set)": "other_generic",  # no sector file; generic only
 }
 SECTOR_LABELS = list(SECTOR_LABEL_TO_KEY.keys())
+
+YEARS_OPTIONS = ["<1 year", "1–3 years", "4–10 years", "10+ years"]
+WORK_MODE_OPTIONS = ["Local & in-person", "Online/remote", "A mix of both"]
 
 def euro_short(n: int) -> str:
     # 100_000 -> "€100k", 5_000_000 -> "€5.0M"
@@ -86,7 +93,6 @@ def start_from_turnover_label(label: str) -> int:
         return 10_000_000
     if label == "€50.0M+":
         return 50_000_000
-    # e.g., "€100k", "€200k", ..., "€9.9M"
     raw = label.replace("€", "")
     if raw.endswith("k"):
         return int(float(raw[:-1])) * 1000
@@ -95,7 +101,7 @@ def start_from_turnover_label(label: str) -> int:
     return 0
 
 def build_turnover_dropdown_options():
-    # requested: start at 100k, then 200k, 300k ...; include <€100k at the top and the two large buckets
+    # Starts at 100k, then 200k, ..., 9.9M; plus <€100k and the two big buckets
     opts = ["<€100k"]
     for v in range(100_000, 10_000_000, 100_000):
         opts.append(euro_short(v))
@@ -110,6 +116,28 @@ def size_from_turnover_start(start: int) -> str:
     if start < 10_000_000:
         return "small"
     return "medium"  # 10–<50M and 50M+ treated as medium
+
+def derive_digital_dependency() -> str:
+    """
+    Simple heuristic based on inputs commonly linked to online reliance.
+    Score (0–5):
+      +1 card_payments, +1 personal_data, +2 industrial_systems,
+      +1 if turnover >= €1M, +1 if employees >= 51.
+    """
+    score = 0
+    score += 1 if st.session_state.card_payments else 0
+    score += 1 if st.session_state.personal_data else 0
+    score += 2 if st.session_state.industrial_systems else 0
+    score += 1 if st.session_state.turnover_start >= 1_000_000 else 0
+    # employees rough check
+    emp = st.session_state.employee_range
+    if emp in ["51–100", "More than 100"]:
+        score += 1
+    if score <= 1:
+        return "Low"
+    if score <= 3:
+        return "Medium"
+    return "High"
 
 def build_questions_now():
     overlay_flags = {
@@ -140,6 +168,32 @@ def status_from_avg(avg: float) -> str:
         return "🟨 Needs improvement"
     return "🟥 At risk"
 
+# --------- Shared UI bits
+def render_snapshot():
+    with st.container():
+        st.subheader("Snapshot")
+        st.markdown(
+            f"**Business:** {st.session_state.company_name or '—'}  \n"
+            f"**Industry:** {st.session_state.sector_label or '—'}  \n"
+            f"**People:** {st.session_state.employee_range or '—'}  • "
+            f"**Years:** {st.session_state.years_in_business or '—'}  • "
+            f"**Turnover:** {turnover_label_from_start(st.session_state.turnover_start)}  \n"
+            f"**Work mode:** {st.session_state.work_mode or '—'}"
+        )
+        st.markdown("---")
+        dep = derive_digital_dependency()
+        st.markdown(f"**Digital dependency (derived):** {dep}")
+        st.caption("Derived from online sales, data handling, and daily tools.")
+        st.button("🔁 Restart", key="restart_btn", on_click=_restart)
+
+def _restart():
+    # reset volatile fields; keep current page
+    keep_page = st.session_state.page
+    st.session_state.clear()
+    for k, v in defaults.items():
+        st.session_state.setdefault(k, v)
+    st.session_state.page = keep_page
+
 # =========================
 # Sidebar navigation
 # =========================
@@ -160,14 +214,71 @@ with st.sidebar:
 # PAGE: Landing
 # ==========================================================
 if st.session_state.page == "Landing":
-    st.title("Small and Medium Enterprise Cybersecurity Self-Assessment")
-    st.subheader("Welcome")
-    st.write(
-        "This assessment adapts to your business. Start with a quick initial assessment, "
-        "then answer one question at a time. You will receive a simple summary with strengths and improvements."
+    st.title("SME Self-Assessment Wizard")
+    st.subheader("First, tell us a bit about the business (≈2 minutes)")
+
+    c1, c2 = st.columns(2)
+    with c1:
+        st.session_state.person_name = st.text_input(
+            "Your name",
+            value=st.session_state.person_name,
+            placeholder="First Last",
+        )
+        # REQUIRED business name (no “optional”)
+        st.session_state.company_name = st.text_input(
+            "Business name",
+            value=st.session_state.company_name,
+            placeholder="Example Consulting Ltd",
+        )
+        st.session_state.sector_label = st.text_input(
+            "Industry / core service (e.g., retail, consulting)",
+            value=st.session_state.sector_label,
+            placeholder="Retail & Hospitality",
+        )
+        st.session_state.sector_key = SECTOR_LABEL_TO_KEY.get(
+            st.session_state.sector_label, "other_generic"
+        )
+
+    with c2:
+        st.session_state.years_in_business = st.selectbox(
+            "How long in business?",
+            YEARS_OPTIONS,
+            index=YEARS_OPTIONS.index(st.session_state.years_in_business),
+        )
+        # employees — updated ranges
+        try:
+            emp_index = EMPLOYEE_RANGES.index(st.session_state.employee_range)
+        except ValueError:
+            emp_index = 0
+        st.session_state.employee_range = st.selectbox(
+            "How many people (incl. contractors)?",
+            EMPLOYEE_RANGES,
+            index=emp_index,
+        )
+        current_label = turnover_label_from_start(st.session_state.turnover_start)
+        try:
+            t_index = build_turnover_dropdown_options().index(current_label)
+        except ValueError:
+            t_index = 0
+        chosen_label = st.selectbox(
+            "Approx. annual turnover",
+            build_turnover_dropdown_options(),
+            index=t_index,
+        )
+        st.session_state.turnover_start = start_from_turnover_label(chosen_label)
+
+    st.session_state.work_mode = st.radio(
+        "Would you describe your business as mostly…",
+        WORK_MODE_OPTIONS,
+        horizontal=True,
+        index=WORK_MODE_OPTIONS.index(st.session_state.work_mode),
     )
-    st.markdown("**What you will need:** basic knowledge of your devices, networks, payments and data handling.")
-    if st.button("Start initial assessment ➜", type="primary"):
+
+    st.markdown(
+        "_We’ll tailor the next questions based on this._"
+    )
+    disabled = (st.session_state.company_name.strip() == "")
+    if st.button("Start Initial Assessment", type="primary", disabled=disabled):
         st.session_state.page = "Initial assessment"
         st.rerun()
 
@@ -177,15 +288,10 @@ if st.session_state.page == "Landing":
 if st.session_state.page == "Initial assessment":
     st.title("Initial assessment")
 
-    # Left snapshot + main two columns
+    # snapshot + form columns
     snap_col, col1, col2 = st.columns([1, 2, 2], vertical_alignment="top")
     with snap_col:
-        st.subheader("Snapshot")
-        snap = st.file_uploader("Add a snapshot (PNG/JPG)", type=["png", "jpg", "jpeg"])
-        if snap:
-            st.image(snap, use_column_width=True)
-        else:
-            st.info("Upload a screenshot or photo here. (Reference-only; not stored.)")
+        render_snapshot()
 
     with col1:
         st.session_state.person_name = st.text_input(
@@ -193,13 +299,12 @@ if st.session_state.page == "Initial assessment":
             value=st.session_state.person_name,
             placeholder="First Last",
         )
+        # REQUIRED
         st.session_state.company_name = st.text_input(
-            "Business name (optional)",
+            "Business name",
             value=st.session_state.company_name,
             placeholder="Example Consulting Ltd",
         )
-        # employees — updated ranges
-        # keep index robust in case of old session values
         try:
             emp_index = EMPLOYEE_RANGES.index(st.session_state.employee_range)
         except ValueError:
@@ -210,16 +315,20 @@ if st.session_state.page == "Initial assessment":
             index=emp_index,
             help="A range is enough for this assessment.",
         )
-
-        # turnover — dropdown in €100k steps (replaces slider)
+        st.session_state.years_in_business = st.selectbox(
+            "How long in business?",
+            YEARS_OPTIONS,
+            index=YEARS_OPTIONS.index(st.session_state.years_in_business),
+        )
+        # turnover — dropdown in €100k steps
         current_label = turnover_label_from_start(st.session_state.turnover_start)
         try:
-            t_index = TURNOVER_DROPDOWN.index(current_label)
+            t_index = build_turnover_dropdown_options().index(current_label)
         except ValueError:
             t_index = 0
         chosen_label = st.selectbox(
             "Approx. annual turnover (choose a value)",
-            TURNOVER_DROPDOWN,
+            build_turnover_dropdown_options(),
             index=t_index,
             help="Dropdown in €100k steps (no slider).",
         )
@@ -231,10 +340,10 @@ if st.session_state.page == "Initial assessment":
         st.session_state.sector_label = st.selectbox(
             "Sector",
             SECTOR_LABELS,
-            index=SECTOR_LABELS.index(st.session_state.sector_label),
+            index=SECTOR_LABELS.index(st.session_state.sector_label) if st.session_state.sector_label in SECTOR_LABELS else 0,
             help="“Others” will load the generic set without sector-specific questions.",
         )
-        st.session_state.sector_key = SECTOR_LABEL_TO_KEY[st.session_state.sector_label]
+        st.session_state.sector_key = SECTOR_LABEL_TO_KEY.get(st.session_state.sector_label, "other_generic")
 
         st.session_state.card_payments = st.checkbox(
             "We accept card payments or use point of sale systems",
@@ -248,8 +357,14 @@ if st.session_state.page == "Initial assessment":
             "We use production or control systems connected to networks",
             value=st.session_state.industrial_systems,
         )
+        st.session_state.work_mode = st.radio(
+            "Work mode",
+            WORK_MODE_OPTIONS,
+            horizontal=True,
+            index=WORK_MODE_OPTIONS.index(st.session_state.work_mode),
+        )
 
-    # ---- New: Business profile & Digital footprint (from the reference sheet)
+    # ---- Business profile & Digital footprint (from the reference sheet)
     st.markdown("---")
     bp, df = st.columns(2)
 
@@ -319,7 +434,7 @@ if st.session_state.page == "Initial assessment":
     if c1.button("⬅ Back to landing"):
         st.session_state.page = "Landing"
         st.rerun()
-    if c2.button("Continue to questionnaire ➜", type="primary"):
+    if c2.button("Continue to questionnaire ➜", type="primary", disabled=(st.session_state.company_name.strip() == "")):
         build_questions_now()
         st.session_state.page = "Questionnaire"
         st.rerun()
@@ -335,46 +450,52 @@ if st.session_state.page == "Questionnaire":
     total = len(qs)
     idx = min(st.session_state.q_index, max(0, total - 1))
 
-    st.title("Questionnaire")
-    st.caption(f"{total} questions loaded for {st.session_state.size} in {st.session_state.sector_label}")
+    # Snapshot left + question right
+    snap_col, main = st.columns([1, 3], vertical_alignment="top")
+    with snap_col:
+        render_snapshot()
 
-    st.progress((idx) / total if total else 0.0, text=f"Question {idx + 1} of {total}")
+    with main:
+        st.title("Questionnaire")
+        st.caption(f"{total} questions loaded for {st.session_state.size} in {st.session_state.sector_label}")
+        st.progress((idx) / total if total else 0.0, text=f"Question {idx + 1} of {total}")
 
-    if total == 0:
-        st.warning("No questions available for the current settings.")
-    else:
-        q = qs[idx]
-        st.subheader(f"{idx + 1}. {q['section']}")
-        st.write(q["text"])
-        st.caption(q["hint"])
+        if total == 0:
+            st.warning("No questions available for the current settings.")
+        else:
+            q = qs[idx]
+            st.subheader(f"{idx + 1}. {q['section']}")
+            st.write(q["text"])
+            with st.expander("Why this matters", expanded=False):
+                st.write(q["hint"])
 
-        default_choice = st.session_state.answers.get(q["id"], "Partially or unsure")
-        choice = st.radio(
-            "Answer",
-            ["Yes", "Partially or unsure", "No"],
-            horizontal=True,
-            index={"Yes": 0, "Partially or unsure": 1, "No": 2}[default_choice],
-            key=f"radio_{q['id']}",
-        )
-        st.session_state.answers[q["id"]] = choice
+            default_choice = st.session_state.answers.get(q["id"], "Partially or unsure")
+            choice = st.radio(
+                "Answer",
+                ["Yes", "Partially or unsure", "No"],
+                horizontal=True,
+                index={"Yes": 0, "Partially or unsure": 1, "No": 2}[default_choice],
+                key=f"radio_{q['id']}",
+            )
+            st.session_state.answers[q["id"]] = choice
 
-        st.markdown("---")
-        b1, b2, b3 = st.columns([1, 1, 2])
-        if b1.button("⬅ Previous", disabled=(idx == 0)):
-            st.session_state.q_index = max(0, idx - 1)
-            st.rerun()
-        if b2.button("Next ➜", disabled=(idx >= total - 1)):
-            st.session_state.q_index = min(total - 1, idx + 1)
-            st.rerun()
-        if b3.button("Finish and see results ✅", type="primary"):
-            st.session_state.page = "Results"
-            st.rerun()
-
-        with st.expander("Jump to a question"):
-            jump = st.slider("Question number", 1, max(1, total), idx + 1)
-            if jump - 1 != idx:
-                st.session_state.q_index = jump - 1
+            st.markdown("---")
+            b1, b2, b3 = st.columns([1, 1, 2])
+            if b1.button("⬅ Previous", disabled=(idx == 0)):
+                st.session_state.q_index = max(0, idx - 1)
                 st.rerun()
+            if b2.button("Next ➜", disabled=(idx >= total - 1)):
+                st.session_state.q_index = min(total - 1, idx + 1)
+                st.rerun()
+            if b3.button("Finish and see results ✅", type="primary"):
+                st.session_state.page = "Results"
+                st.rerun()
+
+            with st.expander("Jump to a question"):
+                jump = st.slider("Question number", 1, max(1, total), idx + 1)
+                if jump - 1 != idx:
+                    st.session_state.q_index = jump - 1
+                    st.rerun()
 
 # ==========================================================
 # PAGE: Results
