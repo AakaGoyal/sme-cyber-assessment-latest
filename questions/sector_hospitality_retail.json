@@ -8,5 +8,95 @@
     "weights": { "importance": 3, "effort": 2, "impact": 3 },
     "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": ["payment_card_industry_data_security_standard"] },
     "framework_references": []
+  },
+  {
+    "id": "q-sect-hosp-002",
+    "section": "Payments and Point of Sale",
+    "text": "Are card readers physically secured when not in use and checked daily for signs of tampering?",
+    "hint": "Simple checks help prevent skimming devices being attached unnoticed.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": ["payment_card_industry_data_security_standard"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-hosp-003",
+    "section": "Payments and Point of Sale",
+    "text": "Do staff know that card numbers and security codes must never be written down or stored on local devices?",
+    "hint": "Written card data is easy to lose or photograph and leads to fraud.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": ["payment_card_industry_data_security_standard"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-hosp-004",
+    "section": "Payments and Point of Sale",
+    "text": "Is the payment portal or settlement dashboard protected with an extra sign-in step for owners or managers?",
+    "hint": "An extra sign-in step reduces the chance of account takeover and payment redirection.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": ["payment_card_industry_data_security_standard"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-hosp-005",
+    "section": "Payments and Point of Sale",
+    "text": "Is the daily close or settlement reviewed for unusual refunds or adjustments?",
+    "hint": "Basic review can catch fraud or mistakes quickly.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": ["payment_card_industry_data_security_standard"] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-hosp-006",
+    "section": "Bookings and Delivery Platforms",
+    "text": "Are online booking and delivery accounts owned by a business email address and protected with an extra sign-in step?",
+    "hint": "Business ownership and extra protection reduce lockouts and takeovers.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-hosp-007",
+    "section": "Wi-Fi and Network",
+    "text": "Do you provide a separate guest wireless network and keep all business devices and point of sale devices on a different network name?",
+    "hint": "Guest devices should never be on the same network as business or payment devices.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-hosp-008",
+    "section": "Social and Public Presence",
+    "text": "Are social media logins stored in a password manager with shared vaults rather than sent by chat to staff?",
+    "hint": "A password manager reduces reuse and keeps ownership with the business.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-hosp-009",
+    "section": "Awareness and Training",
+    "text": "Do staff know how to spot fake messages that pretend to be from delivery partners, booking platforms, or payment providers?",
+    "hint": "These messages often ask for passwords or card refunds; staff should report them.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-sect-hosp-010",
+    "section": "Records and Receipts",
+    "text": "Are printed receipts or order lists that contain personal information stored securely and shredded when no longer needed?",
+    "hint": "Paper records can expose customer details if left in open areas.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": [] },
+    "framework_references": []
   }
 ]
