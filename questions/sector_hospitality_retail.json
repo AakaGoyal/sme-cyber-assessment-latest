@@ -1,0 +1,12 @@
+[
+  {
+    "id": "q-sect-hosp-001",
+    "section": "Payments and Point of Sale",
+    "text": "Are your card readers and point of sale terminals updated regularly and connected only to the business wireless network, not the guest network?",
+    "hint": "Payment devices should be updated and isolated to protect card data.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["micro","small","medium"], "sectors": ["hospitality_retail"], "overlays": ["payment_card_industry_data_security_standard"] },
+    "framework_references": []
+  }
+]
