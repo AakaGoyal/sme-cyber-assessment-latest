@@ -8,5 +8,75 @@
     "weights": { "importance": 2, "effort": 1, "impact": 3 },
     "visibility_rules": { "sizes": ["small"], "sectors": ["all"], "overlays": [] },
     "framework_references": []
+  },
+  {
+    "id": "q-size-small-002",
+    "section": "Access and Identity",
+    "text": "Do you have a simple joiner and leaver checklist to grant and remove access to systems and shared folders?",
+    "hint": "Checklists help make sure nothing is missed when people join or leave.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["small"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-small-003",
+    "section": "Assets and Inventory",
+    "text": "Do you keep a simple list of company devices and who is using them?",
+    "hint": "A basic inventory helps you secure and recover devices.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["small"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-small-004",
+    "section": "Access and Identity",
+    "text": "Are administrator accounts reviewed monthly to make sure only the right people still have that level of access?",
+    "hint": "Regular reviews catch leftover powerful access.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 3, "effort": 2, "impact": 3 },
+    "visibility_rules": { "sizes": ["small"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-small-005",
+    "section": "Cloud and Sharing",
+    "text": "Are shared cloud folders set so that only named people or groups can view or edit them?",
+    "hint": "Open links can spread further than intended.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["small"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-small-006",
+    "section": "Updates and Patching",
+    "text": "Do you have a monthly reminder to check that devices and key applications are up to date?",
+    "hint": "A simple calendar reminder helps keep everything current.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["small"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-small-007",
+    "section": "Backup and Recovery",
+    "text": "Is there a short note that explains who is responsible for backups and how to restore them?",
+    "hint": "Clear ownership reduces confusion during recovery.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 3 },
+    "visibility_rules": { "sizes": ["small"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
+  },
+  {
+    "id": "q-size-small-008",
+    "section": "Awareness and Training",
+    "text": "Do new starters receive a short digital safety briefing during their first week?",
+    "hint": "Early awareness builds good habits from day one.",
+    "answer_type": "traffic_light",
+    "weights": { "importance": 2, "effort": 1, "impact": 2 },
+    "visibility_rules": { "sizes": ["small"], "sectors": ["all"], "overlays": [] },
+    "framework_references": []
   }
 ]
